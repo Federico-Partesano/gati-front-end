@@ -15,30 +15,40 @@ import { Logo } from "./Logo";
 import { io, Socket } from "socket.io-client";
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
+import { useDispatch } from "react-redux";
+import { setBranches, setNameRepo } from "./redux/reducers/repository";
 
 export let socketConnection: null | Socket = null;
 
 export const App = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     socketConnection = io("ws://127.0.0.1:3000", {
       transports: ["websocket"],
     }).connect();
+    socketConnection.emit("name-repo");
+    socketConnection.emit("get-branches");
+
+    socketConnection.on("name-repo", ({ name }: { name: string }) => {
+      dispatch(setNameRepo(name))
+    });
+    socketConnection.on(
+      "get-branches",
+      ({ branches }: { branches: "error" | string[] }) => {
+        Array.isArray(branches) && dispatch(setBranches(branches));
+      }
+    );
   }, []);
 
   const [page, setPage] = useState<"home" | "profile">(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const page = queryParams.get("page");
-    return !page ? "home" : page as "home" | "profile";
+    return !page ? "home" : (page as "home" | "profile");
   });
 
   const setStatePage = (newPage: "home" | "profile") => {
     setPage(newPage);
-    const newurl =
-      `${window.location.protocol 
-      }//${ 
-      window.location.host 
-      }${window.location.pathname 
-      }?page=${page}`;
+    const newurl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?page=${page}`;
     window.history.replaceState({ path: newurl }, "", newurl);
   };
 
@@ -53,12 +63,9 @@ export const App = () => {
     }
   };
 
-
   return (
     <ChakraProvider theme={theme}>
-      <Header>
-     {getPage()}
-     </Header>
+      <Header>{getPage()}</Header>
     </ChakraProvider>
   );
 };
