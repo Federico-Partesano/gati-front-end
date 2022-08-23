@@ -14,8 +14,8 @@ export const getFamilyBranches = (branches: string[]) => {
             nameBranch.split("/").length === 3 || nameBranch === "main"
         )
         .find(
-          ({ name: nameBranch }) =>
-            nameBranch.split("/")[1] === sourceName || nameBranch === sourceName
+          ({ nameBranch }) =>
+            nameBranch === sourceName
         );
 
       const keyBranch = nameBranch in savedBranches ? savedBranches[nameBranch].key : null;
@@ -46,7 +46,7 @@ export const getFamilyBranches = (branches: string[]) => {
         return output.push({
             key: incrementalKey,
             name,
-            sourceName: name,
+            sourceName: "",
             nameBranch: name, 
           });  
     }

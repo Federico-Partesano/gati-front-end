@@ -96,6 +96,13 @@ const BarChart = () => {
     //   )
     // );
 
+    // diagram.addDiagramListener("ObjectSingleClicked",
+    // function(e) {
+    //   var part = e.subject.part;
+    //   if (!(part instanceof go.Link)) console.log("Clicked on " + part.data.key);
+    // });
+
+
     // get tooltip text from the object's data
     function tooltipTextConverter(branch: {
         key: number;
@@ -109,6 +116,7 @@ const BarChart = () => {
       if (branch.sourceName !== undefined) str += "\nSource name: " + branch.sourceName;
       return str;
     }
+  
 
     // define tooltips for nodes
     var tooltiptemplate = $(
@@ -132,6 +140,9 @@ const BarChart = () => {
       return "orange";
     }
 
+    const orphanBranch = (sourceName: string) => sourceName ? "#a9a9b3" : "#797979"
+
+
     diagram.nodeTemplate = $(
       go.Node,
       "Auto",
@@ -146,8 +157,8 @@ const BarChart = () => {
           strokeWidth: 0,
           stretch: go.GraphObject.Fill,
           alignment: go.Spot.Center,
-        }
-        // new go.Binding("fill", "gender", () => pinkgrad)
+        },
+        new go.Binding("fill", "sourceName", orphanBranch)
       ),
       $(
         go.TextBlock,
@@ -155,7 +166,7 @@ const BarChart = () => {
           font: "700 14px Droid Serif, sans-serif",
           textAlign: "center",
           margin: 15,
-          maxSize: new go.Size(160, NaN),
+          maxSize: new go.Size(200, NaN),
         },
         new go.Binding("text", "name")
       )
@@ -175,9 +186,9 @@ const BarChart = () => {
    * This function handles any changes to the GoJS model.
    * It is here that you would make any updates to your React state, which is dicussed below.
    */
-  function handleModelChange(changes: any) {
-    alert("GoJS model changed!");
-  }
+//   function handleModelChange(changes: any) {
+//     console.log('changes', changes)
+// }
 
   return (
     <div className="container-tre-repository">
@@ -189,7 +200,7 @@ const BarChart = () => {
           initDiagram={initDiagram}
           divClassName="diagram-component"
           nodeDataArray={branchesForDiagram}
-          //   onModelChange={handleModelChange}
+        //   onModelChange={handleModelChange}
         />
           <div className="d-flex gap-4 mt-2 justify-content-center">
         <Button
