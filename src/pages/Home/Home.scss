@@ -1,7 +1,22 @@
 @import "src/assets/styles/mixin.scss";
-.name-repo {
-  font-weight: 600;
-  font-size: rem(24);
-  text-align: center;
-  margin-top: rem(4);
+.container-home {
+  height: calc(100vh - 64px);
+  background-color: #232425;
+  display: flex;
+  justify-content: center;
+  .wrapper {
+    max-width: rem(1200);
+    width: 100%;
+    margin: rem(0) rem(16);
+    .name-repo {
+      text-align: start;
+      padding-top: rem(4);
+      font-size: 2.625rem;
+      color: #a9a9b3;
+      font-family: "Inter";
+      font-weight: 700;
+      margin-top: rem(38);
+
+    }
+  }
 }

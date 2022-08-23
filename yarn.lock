@@ -3457,6 +3457,11 @@ adjust-sourcemap-loader@^4.0.0:
     loader-utils "^2.0.0"
     regex-parser "^2.2.11"
 
+advanced-types@^1.1.17:
+  version "1.1.17"
+  resolved "https://registry.yarnpkg.com/advanced-types/-/advanced-types-1.1.17.tgz#fe7ee9641f93a6ce45f7a6caec79e57709bf6a3c"
+  integrity sha512-nN7quKShJw2QCOMJAjpgdH16yXxY3vYnrxRRKwYVtJg66k5jb7ph0Z4wJAh/wScSzgtwYkz3SD8tzTfwU5ycJg==
+
 agent-base@6:
   version "6.0.2"
   resolved "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz"
@@ -6108,6 +6113,18 @@ globby@^11.0.4, globby@^11.1.0:
     ignore "^5.2.0"
     merge2 "^1.4.1"
     slash "^3.0.0"
+
+gojs-react@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/gojs-react/-/gojs-react-1.1.1.tgz#d6d1ae4facefeaa9b10c4a8b384f0a8810474d83"
+  integrity sha512-5dU8v7WUDakhRGoxGodXi2wEVpeVfdeDaw1i/Bodb7VrQlyUALj5jGQaSKR+AXYQczk/pJ/B5R0xfVYnQLsdYQ==
+  dependencies:
+    tslib "^2.3.1"
+
+gojs@^2.2.14:
+  version "2.2.14"
+  resolved "https://registry.yarnpkg.com/gojs/-/gojs-2.2.14.tgz#d1a5036a1d50ad96897d854d26010aed26446ab9"
+  integrity sha512-Uj97rrlSJ2ezfNW1G9garAJFrcJJ1FPK1rrS3K4C07qxUfLP69x5rixhXgDu71a2CLzb+QroHD1oBva29LbSZw==
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
   version "4.2.10"

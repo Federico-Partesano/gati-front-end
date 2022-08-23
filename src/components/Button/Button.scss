@@ -1,0 +1,24 @@
+@import "src/assets/styles/mixin.scss";
+
+.custom-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 900;
+  font-family: "Inter";
+  background-color: #323337;
+  color: #73747b;
+  letter-spacing: .06em;
+  cursor: pointer;
+  padding: rem(12);
+  font-size: rem(16);
+  border-radius: rem(8);
+  transition: color linear .1s;
+
+  &:hover {
+    color: rgb(182, 182, 182);
+  }
+}

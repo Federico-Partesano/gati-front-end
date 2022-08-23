@@ -1,0 +1,40 @@
+@import "src/assets/styles/mixin.scss";
+
+.container-text-terminal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .text-terminal-header {
+    color: #73747b;
+    font-family: "Inter";
+    font-size: rem(16);
+    font-weight: 600;
+  }
+  .rectangle {
+    background-color: #ffc600;
+    width: rem(9);
+    height: rem(14);
+    margin-left: rem(2);
+    animation: mymove 1s infinite;
+  }
+}
+
+@keyframes mymove {
+  from {
+    background-color: #ffc600;
+  }
+  50% {
+    background-color: #1b1c1d;
+  }
+  to {
+    background-color: #ffc600;
+  }
+}
+
+.header-link {
+  cursor: pointer;
+  transition: color linear 0.1s;
+  &:hover {
+    color: rgb(182, 182, 182);
+  }
+}

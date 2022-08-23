@@ -1,18 +1,14 @@
-// .node__root > circle {
-//   fill: red;
-// }
-// // .node__root > g {
-// //   text {
-// //     fill: red;
-// //   }
-// // }
+@import "src/assets/styles/mixin.scss";
 
-// .node__branch > circle {
-//   fill: yellow;
-// }
-
-.node__leaf > circle {
-  fill: green;
-  /* Let's also make the radius of leaf nodes larger */
-  r: 40;
+.container-tre-repository {
+display: flex;
+width: 100%;
+height: calc(100vh - 150px);
+flex-direction: column;
+.diagram-component {
+  width: 100%;
+  height: 70%;
+border: 1px solid #a9a9b3;
+border-radius: rem(10);
+}
 }

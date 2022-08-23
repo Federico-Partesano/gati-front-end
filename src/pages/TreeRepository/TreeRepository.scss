@@ -1,0 +1,23 @@
+@import "src/assets/styles/mixin.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');.container-tree-repository {
+    height: calc(100vh - 64px);
+    background-color: #232425;
+    display: flex;
+    justify-content: center;
+    .wrapper {
+        max-width: rem(1200);
+        margin: rem(0) rem(16);
+        width: 100%;
+    .title-tree {
+        margin-top: rem(34);
+        margin-bottom: rem(8);
+        font-size: 2.625rem;
+        color: #a9a9b3;
+        font-family: 'Inter';
+        font-weight: 700;
+    }
+  .container-tree {
+    padding-top: rem(24);
+  }
+}
+}
